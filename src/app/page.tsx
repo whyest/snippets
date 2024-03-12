@@ -8,7 +8,7 @@ export default async function Home() {
       <Link
         key={snippet.id}
         href={`/snippets/${snippet.id}`}
-        className="flex justify-between p-2 items-center border rounded"
+        className="flex items-center justify-between rounded border p-2"
       >
         <div>{snippet.title}</div>
         <div>View</div>
@@ -17,13 +17,13 @@ export default async function Home() {
   });
   return (
     <div>
-      <div className="flex justify-between items-center my-2">
+      <div className="my-2 flex items-center justify-between">
         <h1 className="text-xl font-bold">Snippets</h1>
-        <Link href={`/snippets/new`} className="border rounded p-2 px-3">
+        <Link href={`/snippets/new`} className="rounded border p-2 px-3">
           New
         </Link>
       </div>
-      <div className="flex gap-2 flex-col">{renderedSnippets}</div>
+      <div className="flex flex-col gap-2">{renderedSnippets}</div>
     </div>
   );
 }
