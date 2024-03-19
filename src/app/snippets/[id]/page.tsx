@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 import Link from "next/link";
+import * as actions from "@/actions";
 
 interface SnippetShowPageProps {
   params: {
@@ -18,6 +19,8 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
     return notFound();
   }
 
+  const deleteSnippetAction = actions.deleteSnippet.bind(null, snippet.id);
+
   console.log(props);
   return (
     <div>
@@ -30,7 +33,9 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
           >
             Edit
           </Link>
-          <button className="rounded border p-2">Delete</button>
+          <form action={deleteSnippetAction}>
+            <button className="rounded border p-2">Delete</button>
+          </form>
         </div>
       </div>
       <pre className="rounded border border-gray-200 bg-gray-200 p-3">
