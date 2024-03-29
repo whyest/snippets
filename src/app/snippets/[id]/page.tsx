@@ -42,7 +42,7 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
         <code>{snippet.code}</code>
       </pre>
       <Link href={"/"} className=" rounded border p-2">
-        Back to Main
+        Back to Snippets
       </Link>
     </div>
   );
